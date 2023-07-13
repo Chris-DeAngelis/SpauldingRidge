@@ -1,0 +1,38 @@
+# Dataframe and Array functions
+pandas == 1.5.3
+numpy
+
+
+# Database connections
+snowflake.sqlalchemy
+sqlalchemy
+
+# Streamlit text formatting
+st-annotated-text
+
+# Pull company logo from web
+requests
+
+# Machine learning modeling and statistical analysis
+scikit-learn
+statsmodels
+pmdarima
+holidays
+
+# Visualization
+matplotlib
+seaborn
+
+#pystan
+#fbprophet
+#-r https://raw.githubusercontent.com/snowflakedb/snowflake-connector-python/main/tested_requirements/requirements_39.reqs
+#charset-normalizer == 2.9.*
+protobuf==3.20.*
+#python_version == '3.8.*'
+#-r https://raw.githubusercontent.com/snowflakedb/snowflake-connector-python/v2.7.9/tested_requirements/requirements_39.reqs
+
+#sklearn
+
+# ChatGPT
+#openai
+
