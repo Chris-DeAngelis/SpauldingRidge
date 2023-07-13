@@ -15,6 +15,7 @@ st.set_page_config(
     }
 )
 
+add_logo()
 st.write("# Welcome to Spaulding Ridge's Analytics & AI Demonstration Workspace")#:bar_chart::rocket:")
 st.markdown(
         """
