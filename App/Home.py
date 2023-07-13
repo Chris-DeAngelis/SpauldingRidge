@@ -109,6 +109,10 @@ with st.sidebar:
         "Choose a shipping method",
         ("Standard (5-15 days)", "Express (2-5 days)")
     )
+st.sidebar.markdown(
+    "My Logo (sidebar) should be on top of the Navigation within the sidebar"
+)
+
 #add_selectbox = st.sidebar.selectbox(
 #    "Contact Me",
 #    ("Email", "LinkedIn", "Github Profile")
