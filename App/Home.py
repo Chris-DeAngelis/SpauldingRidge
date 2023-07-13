@@ -16,11 +16,6 @@ st.set_page_config(
 )
 
 st.write("# Welcome to Spaulding Ridge's Analytics & AI Demonstration Workspace")#:bar_chart::rocket:")
-st.markdown(
-        """
-        ### Use the sidebar to navigate between different business use cases    
-        """
-)
 #st.title('Data Ingestion')
 # with st.expander("Data Ingestion", expanded=True):
 #     a = st.multiselect(
