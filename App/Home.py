@@ -96,6 +96,15 @@ st.write("# Welcome to Spaulding Ridge's Analytics & AI Demonstration Workspace"
 #m4.metric(label = 'Time Lost today (Above 15 mins)',value = str(int(hl['Value']))+" Hours", delta = str(int(hl['Previous']))+' Compared to yesterday')
 #m1.write('')
 
+# page_names_to_funcs = {
+#     "Main Page": main_page,
+#     "Page 2": page2,
+#     "Page 3": page3,
+# }
+
+# selected_page = st.sidebar.selectbox("Select a page", page_names_to_funcs.keys())
+# page_names_to_funcs[selected_page]()
+
 # Load logo
 def add_logo():
     st.markdown(
