@@ -119,12 +119,12 @@ def add_logo():
                 background-position: 20px 20px;
             }
             [data-testid="stSidebarNav"]::before {
-                content: "Spaulding Ridge";
+                content: "My Company Name";
                 margin-left: 20px;
                 margin-top: 20px;
-                font-size: 15px;
+                font-size: 30px;
                 position: relative;
-                top: 150px;
+                top: 100px;
             }
         </style>
         """,
