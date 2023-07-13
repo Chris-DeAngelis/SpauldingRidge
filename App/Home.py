@@ -102,10 +102,10 @@ with st.expander("Data Analytics & Publication ", expanded=True):
 #m1.write('')
 
 # Using object notation
-add_selectbox = st.sidebar.selectbox(
-    "Contact Me",
-    ("Email", "LinkedIn", "Github Profile")
-)
+#add_selectbox = st.sidebar.selectbox(
+#    "Contact Me",
+#    ("Email", "LinkedIn", "Github Profile")
+#)
 
 # Load logo
 def add_logo():
