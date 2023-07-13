@@ -96,23 +96,6 @@ st.write("# Welcome to Spaulding Ridge's Analytics & AI Demonstration Workspace"
 #m4.metric(label = 'Time Lost today (Above 15 mins)',value = str(int(hl['Value']))+" Hours", delta = str(int(hl['Previous']))+' Compared to yesterday')
 #m1.write('')
 
-# Using object notation
-
-# Using "with" notation
-with st.sidebar:
-    add_radio = st.radio(
-        "Choose a shipping method",
-        ("Standard (5-15 days)", "Express (2-5 days)")
-    )
-st.sidebar.markdown(
-    "My Logo (sidebar) should be on top of the Navigation within the sidebar"
-)
-
-#add_selectbox = st.sidebar.selectbox(
-#    "Contact Me",
-#    ("Email", "LinkedIn", "Github Profile")
-#)
-
 # Load logo
 def add_logo():
     st.markdown(
@@ -121,7 +104,7 @@ def add_logo():
             [data-testid="stSidebarNav"] {
                 background-image: url(https://www.spauldingridge.com/wp-content/uploads/2023/05/logo-dark-051523-278x23.png);
                 background-repeat: no-repeat;
-                #padding-top: 320px;
+                padding-top: 20px;
                 background-position: 20px 20px;
             }
             [data-testid="stSidebarNav"]::before {
@@ -130,7 +113,7 @@ def add_logo():
                 margin-top: 20px;
                 font-size: 30px;
                 position: relative;
-                top: 100px;
+                top: 20px;
             }
         </style>
         """,
