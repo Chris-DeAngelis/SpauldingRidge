@@ -7,7 +7,7 @@ import pandas as pd
 st.set_page_config(
     page_title="Spaulding Ridge | Analytics & AI",
     page_icon=":bar_chart:", #"👋",
-    initial_sidebar_state="expanded",
+    #initial_sidebar_state="expanded",
     menu_items={
         'Get Help': 'http://spauldingridge.com',
         #'Report a bug': "https://www.extremelycoolapp.com/bug",
