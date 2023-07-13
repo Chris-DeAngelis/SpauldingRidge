@@ -119,7 +119,7 @@ def add_logo():
         """
         <style>
             [data-testid="stSidebarNav"] {
-                background-image: url(http://placekitten.com/200/200);
+                background-image: url(https://www.spauldingridge.com/wp-content/uploads/2023/05/logo-dark-051523-278x23.png);
                 background-repeat: no-repeat;
                 padding-top: 120px;
                 background-position: 20px 20px;
