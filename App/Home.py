@@ -22,29 +22,29 @@ st.markdown(
         """
 )
 #st.title('Data Ingestion')
-with st.expander("Data Ingestion", expanded=True):
-    a = st.multiselect(
-             "Select one or more tools:", ['A','B','C'], ['B'],
-       key = 1
-    )
+# with st.expander("Data Ingestion", expanded=True):
+#     a = st.multiselect(
+#              "Select one or more tools:", ['A','B','C'], ['B'],
+#        key = 1
+#     )
 
-with st.expander("Data Storage & Transformation", expanded=True):
-   b = st.multiselect(
-             "Select one or more tools:", ['A','B','C'], ['B'],
-       key = 2
-    )
+# with st.expander("Data Storage & Transformation", expanded=True):
+#    b = st.multiselect(
+#              "Select one or more tools:", ['A','B','C'], ['B'],
+#        key = 2
+#     )
 
-with st.expander("Data Catalog & Governance", expanded=True):
-    c = st.multiselect(
-             "Select one or more tools:", ['A','B','C'], ['C'],
-       key = 3
-    )
+# with st.expander("Data Catalog & Governance", expanded=True):
+#     c = st.multiselect(
+#              "Select one or more tools:", ['A','B','C'], ['C'],
+#        key = 3
+#     )
 
-with st.expander("Data Analytics & Publication ", expanded=True):
-    d = st.multiselect(
-             "Select one or more tools:", ['A','B','C'], ['B'],
-       key = 4
-    )
+# with st.expander("Data Analytics & Publication ", expanded=True):
+#     d = st.multiselect(
+#              "Select one or more tools:", ['A','B','C'], ['B'],
+#        key = 4
+#     )
 
 
 #zews_query = st.secrets.credentials.query
