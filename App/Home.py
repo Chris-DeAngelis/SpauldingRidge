@@ -117,7 +117,6 @@ def add_logo():
                 background-repeat: no-repeat;
                 padding-top: 120px;
                 background-position: 20px 20px;
-                #background-size: 200px 200px;
             }
             [data-testid="stSidebarNav"]::before {
                 content: "Spaulding Ridge";
