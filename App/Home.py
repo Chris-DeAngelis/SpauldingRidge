@@ -121,7 +121,7 @@ def add_logo():
             [data-testid="stSidebarNav"] {
                 background-image: url(https://www.spauldingridge.com/wp-content/uploads/2023/05/logo-dark-051523-278x23.png);
                 background-repeat: no-repeat;
-                padding-top: 320px;
+                #padding-top: 320px;
                 background-position: 20px 20px;
             }
             [data-testid="stSidebarNav"]::before {
@@ -130,7 +130,7 @@ def add_logo():
                 margin-top: 20px;
                 font-size: 30px;
                 position: relative;
-                top: 300px;
+                top: 100px;
             }
         </style>
         """,
