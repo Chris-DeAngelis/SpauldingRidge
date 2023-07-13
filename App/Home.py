@@ -7,7 +7,7 @@ import pandas as pd
 st.set_page_config(
     page_title="Spaulding Ridge | Analytics & AI",
     page_icon=":bar_chart:", #"👋",
-    #initial_sidebar_state="expanded",
+    initial_sidebar_state="expanded",
     menu_items={
         'Get Help': 'http://spauldingridge.com',
         #'Report a bug': "https://www.extremelycoolapp.com/bug",
@@ -102,6 +102,13 @@ with st.expander("Data Analytics & Publication ", expanded=True):
 #m1.write('')
 
 # Using object notation
+
+# Using "with" notation
+with st.sidebar:
+    add_radio = st.radio(
+        "Choose a shipping method",
+        ("Standard (5-15 days)", "Express (2-5 days)")
+    )
 #add_selectbox = st.sidebar.selectbox(
 #    "Contact Me",
 #    ("Email", "LinkedIn", "Github Profile")
@@ -119,12 +126,12 @@ def add_logo():
                 background-position: 20px 20px;
             }
             [data-testid="stSidebarNav"]::before {
-                content: "My Company Name";
+                content: "Spaulding Ridge";
                 margin-left: 20px;
                 margin-top: 20px;
                 font-size: 30px;
                 position: relative;
-                top: 100px;
+                top: 50px;
             }
         </style>
         """,
