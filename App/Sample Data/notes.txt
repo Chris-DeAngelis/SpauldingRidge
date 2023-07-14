@@ -1,1 +1,17 @@
+UK Retailer - https://www.kaggle.com/datasets/carrie1/ecommerce-data
+BRL - https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce?resource=download
+BRL Marketing - https://www.kaggle.com/datasets/olistbr/marketing-funnel-olist
 
+Online Auctions - https://www.kaggle.com/datasets/onlineauctions/online-auctions-dataset
+
+https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset/code?datasetId=1031&sortBy=voteCount
+https://www.kaggle.com/code/johnosorio/retail-rocket-ecommerce-recommender-system
+
+https://archive.ics.uci.edu/dataset/352/online+retail
+https://archive.ics.uci.edu/dataset/502/online+retail+ii
+
+Sales forecasting: https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting
+
+Advertising
+https://www.kaggle.com/datasets/ashydv/advertising-dataset
+https://www.kaggle.com/code/ashydv/sales-prediction-simple-linear-regression
