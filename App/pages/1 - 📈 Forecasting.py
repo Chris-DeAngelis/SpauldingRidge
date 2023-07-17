@@ -61,12 +61,12 @@ st.dataframe(df.style.highlight_max(axis=1))
 
 ##########################################################
 # Aeon
-forecaster = TrendForecaster()
-forecaster.fit(df['passengers'])
-TrendForecaster()
+# forecaster = TrendForecaster()
+# forecaster.fit(df['passengers'])
+# TrendForecaster()
 
-pred = forecaster.predict(fh=[1, 2, 3])
-print(pred)
+# pred = forecaster.predict(fh=[1, 2, 3])
+# print(pred)
 ##########################################################
 # Decomposing the time series into trend, seasonality, and residuals
 # decomposition = seasonal_decompose(df, model='additive', period = 1)
