@@ -21,8 +21,10 @@ aeon
 holidays
 
 # Visualization
+plotly
 matplotlib
 seaborn
+pygwalker
 
 #pystan
 #fbprophet
