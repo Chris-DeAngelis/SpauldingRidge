@@ -35,8 +35,11 @@ st.set_page_config(
         #'About': "# This is a header. This is an *extremely* cool app!"
     #}    
 )
-#st.write(df.dtypes)
 
+st.title('Forecasting Demo')
+st.subtitle('Securely connect to your data and use this flexible forecasting tool')
+st.write('Apply filters, see model transparency, explainability, and accuracy')
+         
 df = pd.read_csv(
     "https://raw.githubusercontent.com/selva86/datasets/master/AirPassengers.csv",
     header=0,
