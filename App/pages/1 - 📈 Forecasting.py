@@ -47,7 +47,7 @@ df = pd.read_csv(
 df = pd.read_csv(
    'https://raw.githubusercontent.com/Chris-DeAngelis/SpauldingRidge/main/supermarket_sales%20-%20Sheet1.csv',
    usecols = ['Branch','City','Customer type','Gender','Product line','Unit price','Quantity','Total','Date','Time','Payment','gross income'],
-   parse_dates = 'Date'
+   parse_dates = ['Date']
 )
 #df = df[['Date: Ship','Qty']]
 st.dataframe(df.style.highlight_max(axis=1))
