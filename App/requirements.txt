@@ -24,7 +24,7 @@ holidays
 plotly
 matplotlib
 seaborn
-pygwalker==0.3.9
+pygwalker==0.3.12
 
 #pystan
 #fbprophet
