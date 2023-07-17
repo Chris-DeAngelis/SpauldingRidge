@@ -17,7 +17,7 @@ requests
 scikit-learn
 statsmodels
 pmdarima
-aeon.forecasting.trend
+aeon
 holidays
 
 # Visualization
