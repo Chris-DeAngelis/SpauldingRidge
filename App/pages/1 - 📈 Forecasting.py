@@ -50,7 +50,7 @@ df = pd.read_csv(
    parse_dates = ['Date']
 )
 #df = df[['Date: Ship','Qty']]
-st.dataframe(df.style.highlight_max(axis=1))
+st.dataframe(df)#df.style.highlight_max(axis=1))
 #st.write(df.head())
 #df = df[df['Item: Parent'] == 'DSE233194']
 # df.set_index('Date: Ship', inplace=True)
