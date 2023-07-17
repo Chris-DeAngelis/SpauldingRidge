@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 #import holidays
-
+from aeon.forecasting.trend import TrendForecaster
 from statsmodels.tsa.seasonal import seasonal_decompose
 #from fbprophet import Prophet
 #from sklearn.metrics import mean_squared_error, r2_score
@@ -25,7 +25,7 @@ if "shared" not in st.session_state:
    st.session_state["shared"] = True
 
 st.set_page_config(
-    page_title="Data Science @ Zurn Elkay | Chris DeAngelis, 2023",
+    page_title="Data Science @ Spaulding Ridge | Chris DeAngelis, 2023",
     page_icon=":bar_chart:",
     layout="wide"#,
     #initial_sidebar_state="collapsed"
@@ -35,7 +35,6 @@ st.set_page_config(
         #'About': "# This is a header. This is an *extremely* cool app!"
     #}    
 )
-df = st.session_state['zews_sales']
 #st.write(df.dtypes)
 
 df = pd.read_csv(
@@ -55,35 +54,43 @@ st.write(df.head())
 # #df['Qty'].fillna(0, inplace=True)
 
 ##########################################################
+# Aeon
+forecaster = TrendForecaster()
+forecaster.fit(df['passengers'])
+TrendForecaster()
+
+pred = forecaster.predict(fh=[1, 2, 3])
+print(pred)
+##########################################################
 # Decomposing the time series into trend, seasonality, and residuals
-decomposition = seasonal_decompose(df, model='additive', period = 1)
+# decomposition = seasonal_decompose(df, model='additive', period = 1)
 
-# Plotting the decomposed components
-trend = decomposition.trend
-seasonality = decomposition.seasonal
-residuals = decomposition.resid
+# # Plotting the decomposed components
+# trend = decomposition.trend
+# seasonality = decomposition.seasonal
+# residuals = decomposition.resid
 
-fig = plt.figure(figsize=(10,8))
+# fig = plt.figure(figsize=(10,8))
 
-plt.subplot(411)
-plt.plot(df, label='Original')
-plt.legend(loc='upper left')
+# plt.subplot(411)
+# plt.plot(df, label='Original')
+# plt.legend(loc='upper left')
 
-plt.subplot(412)
-plt.plot(trend, label='Trend')
-plt.legend(loc='upper left')
+# plt.subplot(412)
+# plt.plot(trend, label='Trend')
+# plt.legend(loc='upper left')
 
-plt.subplot(413)
-plt.plot(seasonality, label='Seasonality')
-plt.legend(loc='upper left')
+# plt.subplot(413)
+# plt.plot(seasonality, label='Seasonality')
+# plt.legend(loc='upper left')
 
-plt.subplot(414)
-plt.plot(residuals, label='Residuals')
-plt.legend(loc='upper left')
+# plt.subplot(414)
+# plt.plot(residuals, label='Residuals')
+# plt.legend(loc='upper left')
 
-plt.tight_layout()
-plt.show()
-st.pyplot(fig)
+# plt.tight_layout()
+# plt.show()
+# st.pyplot(fig)
 ##########################################################
 # # Load/split your data
 # train, test = train_test_split(df['Qty'], train_size=150)
