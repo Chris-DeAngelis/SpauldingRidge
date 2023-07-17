@@ -22,6 +22,6 @@ df = pd.read_csv(
    parse_dates = ['Date']
 )
 
-gwalker = pyg.walk(df)
+gwalker = pyg.walk(df, return_html=True)
 # Embed the HTML into the Streamlit app
 components.html(gwalker, height=1000, scrolling=True)
