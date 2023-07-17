@@ -37,7 +37,7 @@ st.set_page_config(
 )
 
 st.title('Forecasting Demo')
-st.subtitle('Securely connect to your data and use this flexible forecasting tool')
+st.header('Securely connect to your data and use this flexible forecasting tool')
 st.write('Apply filters, see model transparency, explainability, and accuracy')
          
 df = pd.read_csv(
