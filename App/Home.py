@@ -26,12 +26,14 @@ st.markdown(
         - No software. No slowing down your computer. No credentials outside of access to your email
         - Interactivity. Think dashboards and data you can add/remove/edit on the fly
         - The web app is updated in real-time and runs off published, documented code - keeping everything in sync
+
         
         """
 )
 st.markdown(
         """
-        :arrow_left: Get started by clicking the reports on the left
+        
+        ###:arrow_left: Get started by clicking the reports on the left
         """
 )
 
