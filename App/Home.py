@@ -112,10 +112,10 @@ def add_logo():
         <style>
             [data-testid="stSidebarNav"] {
                 background-image: url(https://github.com/Chris-DeAngelis/SpauldingRidge/blob/main/App/SR%20Logo.PNG?raw=true);
-                width: 250px;
+                width: auto;
                 height: 250px;
                 background-repeat: no-repeat;
-                padding-top: 20px;
+                padding-top: 10px;
                 background-position: 20px 20px;
             }
             [data-testid="stSidebarNav"]::before {
