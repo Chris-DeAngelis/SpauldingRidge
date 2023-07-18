@@ -123,7 +123,7 @@ def add_logo():
                 margin-top: 20px;
                 font-size: 30px;
                 position: relative;
-                top: 120px;
+                top: 320px;
             }
         </style>
         """,
