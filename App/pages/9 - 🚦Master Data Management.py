@@ -13,18 +13,26 @@ st.set_page_config(
         'About': "# Built by Chris DeAngelis, CFA | cdeangelis@spauldingridge.com"
     }
 )
+# initialize list of lists
+data = [['Brian', 'Joesphson', '32 S Drury Lane, VA 27343', '(253)234-2122','mysupplyparts.com',True,False],
+        ['Sally', 'Fields', '1232 N Hampton, NY 22340', '(153)256-0010','petfood.com',True,False]]
+  
+# Create the pandas DataFrame
+df = pd.DataFrame(data, columns=['First Name','Last Name','Address','Phone #','Website','Primary Customer Flag','Mark For Review'])
 
-df = pd.DataFrame(
-    [
-       {"Customer: First Name": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
-       {"Customer: Last Name": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
-       {"Customer: Address": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
-       {"Customer: Phone #": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
-       {"Customer: Website": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
-       {"Primary Customer Flag": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
-       {"Mark For Review": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]}
-   ]
-)
+# df = pd.DataFrame(
+#     [
+       
+        
+#        {"Customer: First Name": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+#        {"Customer: Last Name": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+#        {"Customer: Address": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+#        {"Customer: Phone #": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+#        {"Customer: Website": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+#        {"Primary Customer Flag": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+#        {"Mark For Review": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]}
+#    ]
+# )
 edited_df = st.data_editor(df, 
                            num_rows='dynamic',
                            use_container_width=True) # 👈 An editable dataframe
