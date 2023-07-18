@@ -50,10 +50,13 @@ edited_df = st.data_editor(df,
                            use_container_width=True) # 👈 An editable dataframe
 
 # Adding buttons
-st.button('Post Results to Database', key=1)
-st.button('Delete Selected Rows', key=3)
-st.button('Clear All Changes', key=2)
-
+col1, col2, col3 = st.columns(3)
+with col1:
+	st.button('Post Results to Database', key=1)
+with col2:
+	st.button('Delete Selected Rows', key=2)
+with col3:
+	st.button('Clear All Changes', key=3)
 
 # Load logo
 def add_logo():
