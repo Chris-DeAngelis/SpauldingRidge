@@ -115,7 +115,7 @@ def add_logo():
                 background-repeat: no-repeat;
                 padding-top: 10px;
                 /*background-position: 20px 20px;*/
-                background-size: 100px 200px;
+                background-size: 300px 100px;
             }
             [data-testid="stSidebarNav"]::before {
                 content: "";
