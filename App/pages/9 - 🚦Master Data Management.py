@@ -16,7 +16,7 @@ st.set_page_config(
 
 df = pd.DataFrame(
     [
-       {"Customer: First Name": "st.selectbox", "rating": 4, "is_widget": True},
+       {"Customer: First Name": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"], "rating": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"], "is_widget": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
        {"Customer: Last Name": "st.balloons", "rating": 5, "is_widget": False},
        {"Customer: Address": "st.time_input", "rating": 3, "is_widget": True},
        {"Customer: Phone #": "st.time_input", "rating": 3, "is_widget": True},
