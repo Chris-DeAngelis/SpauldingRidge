@@ -15,11 +15,6 @@ st.set_page_config(
     }
 )
 
-st.sidebar.write('')
-st.sidebar.write('')
-st.sidebar.write('')
-st.sidebar.write('')
-st.sidebar.write('')
 st.write("# Welcome to Spaulding Ridge's Analytics & AI Demonstration Workspace")#:bar_chart::rocket:")
 #st.title('Data Ingestion')
 # with st.expander("Data Ingestion", expanded=True):
@@ -123,7 +118,12 @@ def add_logo():
                 background-size: 350px 225px;
             }
             [data-testid="stSidebarNav"]::before {
-                content: "";
+                content: "
+                
+                
+                
+                
+                ";
                 margin-left: 20px;
                 margin-top: 200px;
                 font-size: 30px;
