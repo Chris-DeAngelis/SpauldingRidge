@@ -25,7 +25,7 @@ st.markdown("""
             - Import from a one or many systems and publish to one or many systems
 	    - Run business checks and automatically apply common fixes
 	    - Leverage natural language processing (NLP) to clean the data for you automatically
-     
+     	    """)
 # Give user option to upload data
 #uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=False)
 uploaded_file = st.file_uploader("Upload your file here...", type=['csv'])
