@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import requests
-from io import StringIO
+#from io import StringIO
 
 st.set_page_config(
     page_title="Spaulding Ridge | Analytics & AI",
@@ -19,11 +19,8 @@ st.title('Master Data Management & Data Entry Tool')
 st.write('See how easily you can review, modify, add, and delete data before submitting')
 
 # Give user option to upload data
-uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=False)
-for uploaded_file in uploaded_files:
-    bytes_data = uploaded_file.read()
-    st.write("filename:", uploaded_file.name)
-    st.write(bytes_data)
+#uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=False)
+uploaded_file = st.file_uploader("Upload your file here...", type=['csv'])
 
 # Create the pandas DataFrame
 df = pd.DataFrame({
@@ -35,8 +32,19 @@ df = pd.DataFrame({
        "Mark For Review": [False,True,False,False,True,False,False,False]
 })
 
-if bytes_data is not None:
-    df = pd.DataFrame(bytes_data)
+if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file)
+	#st.write(df)
+# for uploaded_file in uploaded_files:
+#     bytes_data = uploaded_file.read()
+#     st.write("filename:", uploaded_file.name)
+#     st.write(bytes_data)
+
+
+# if bytes_data is not None:
+#     df = pd.DataFrame(bytes_data)
+
+
 edited_df = st.data_editor(df, 
                            num_rows='dynamic',
                            use_container_width=True) # 👈 An editable dataframe
