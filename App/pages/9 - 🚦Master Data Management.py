@@ -16,13 +16,13 @@ st.set_page_config(
 
 df = pd.DataFrame(
     [
-       {"Customer: First Name": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"], "rating": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"], "is_widget": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
-       {"Customer: Last Name": "st.balloons", "rating": 5, "is_widget": False},
-       {"Customer: Address": "st.time_input", "rating": 3, "is_widget": True},
-       {"Customer: Phone #": "st.time_input", "rating": 3, "is_widget": True},
-       {"Customer: Website": "st.time_input", "rating": 3, "is_widget": True},
-       {"Primary Customer Flag": "st.time_input", "rating": 3, "is_widget": True},
-       {"Mark For Review": "st.time_input", "rating": 3, "is_widget": True},
+       {"Customer: First Name": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+       {"Customer: Last Name": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+       {"Customer: Address": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+       {"Customer: Phone #": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+       {"Customer: Website": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+       {"Primary Customer Flag": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+       {"Mark For Review": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
    ]
 )
 edited_df = st.data_editor(df, 
