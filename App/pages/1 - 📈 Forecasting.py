@@ -38,14 +38,15 @@ st.set_page_config(
 
 st.title('Forecasting Demo')
 st.header('Securely connect to your data and use this flexible forecasting tool')
-st.write('Apply filters, see model transparency, explainability, and accuracy')
 
 with st.expander("Instructions", expanded=True):
+    st.write('Apply filters, see model transparency, explainability, and accuracy')
     st.caption("1. Select level to forecast: channel, business vertical, etc.")
     st.caption("2. Apply any filters to incorporate in the analysis")
     st.caption("3. Optional: Try and enhance the forecast using external, macroeconomic variables")
 
 with st.expander("Sample Data Preview", expanded=False):
+    st.caption('This sample dataset looks at an eCommerce store sales...')
     try:
         verticals = st.multiselect(
             "Choose Business Verticals", ['A','B','C'], ['B']
@@ -97,7 +98,8 @@ st.dataframe(df)#df.style.highlight_max(axis=1))
 with st.expander("Macroeconomics Data Preview", expanded=False):
     #@st.cache(ttl=600)
     evaluate = st.checkbox(
-    "Use external macroeconomic data to influence forecast", value=True#, help=readme["tooltips"]["choice_eval"]
+    "Use external macroeconomic data to influence forecast", value=True, #help=readme["tooltips"]["choice_eval"]
+    key=1
     )
     df = pd.DataFrame(
     [
@@ -132,9 +134,9 @@ edited_df = st.experimental_data_editor(df, use_container_width = True) # 👈 A
     #     st.write("")
 
 with st.expander("Model Settings", expanded=False):
-    option_macro = st.checkbox("Use Macroeconomic Data", label_visibility="visible")
-    option_freq = st.radio("Forecast Interval", ('Weekly','Monthly','Quarterly'), horizontal=True, label_visibility="visible")
-    option_units = st.radio("Forecast Units", ('Sales ($USD)','Units'), horizontal=True, label_visibility="visible")
+    option_macro = st.checkbox("Use Macroeconomic Data", label_visibility="visible", key=2)
+    option_freq = st.radio("Forecast Interval", ('Weekly','Monthly','Quarterly'), horizontal=True, label_visibility="visible", key=3)
+    option_units = st.radio("Forecast Units", ('Sales ($USD)','Units'), horizontal=True, label_visibility="visible", key=4)
 
 # sales = df.copy()
 # if option_units == 'Sales ($USD)':
@@ -153,19 +155,19 @@ with st.expander("Model Settings", expanded=False):
 #     train = sales_tidy.set_index("ds").resample("Q").sum()    
 # train['ds'] = train.index
 with st.expander("Forecast Interpretation", expanded=False):
-    temp = st.checkbox("Placeholder", label_visibility="visible")
+    temp = st.checkbox("Placeholder", label_visibility="visible", key=5)
     
 with st.expander("Model Performance & Error Analysis", expanded=False):
-    temp = st.checkbox("Placeholder", label_visibility="visible")
+    temp = st.checkbox("Placeholder", label_visibility="visible", key=6)
     
 with st.expander("Model Seasonality & Factor Analysis", expanded=False):
-    temp = st.checkbox("Placeholder", label_visibility="visible")
+    temp = st.checkbox("Placeholder", label_visibility="visible", key=7)
 
 with st.expander("Export Forecast Data", expanded=False):
-    temp = st.checkbox("Placeholder", label_visibility="visible")
+    temp = st.checkbox("Placeholder", label_visibility="visible", key=8)
 
 with st.expander("What-If Analysis", expanded=False):
-    temp = st.checkbox("Placeholder", label_visibility="visible")
+    temp = st.checkbox("Placeholder", label_visibility="visible", key=9)
 
 
 ##########################################################
@@ -350,18 +352,20 @@ def add_logo():
         """
         <style>
             [data-testid="stSidebarNav"] {
-                background-image: url(https://www.spauldingridge.com/wp-content/uploads/2023/05/logo-dark-051523-278x23.png);
+                background-image: url(https://github.com/Chris-DeAngelis/SpauldingRidge/blob/main/App/SR%20Logo.PNG?raw=true);
                 background-repeat: no-repeat;
-                padding-top: 120px;
-                background-position: 20px 20px;
+                padding-top: 50px;
+                padding-left: 10px;
+                background-position: 50px 50px;
+                background-size: 250px 125px;
             }
             [data-testid="stSidebarNav"]::before {
                 content: "";
                 margin-left: 20px;
-                margin-top: 20px;
+                margin-top: 200px;
                 font-size: 30px;
                 position: relative;
-                top: 100px;
+                top: 320px;
             }
         </style>
         """,
