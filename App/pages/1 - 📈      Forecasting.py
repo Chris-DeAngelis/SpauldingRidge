@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import plotly.figure_factory as ff
+import altair as alt
 #import holidays
 from aeon.forecasting.trend import TrendForecaster
 from statsmodels.tsa.seasonal import seasonal_decompose
@@ -53,12 +53,11 @@ st.title('Forecasting Demo')
 st.write('Securely connect to your data and use this flexible forecasting tool')
 
 # Create lineplot
-fig = ff.create_linechart(
-        df[['Date','Total']]
-)
+c = alt.Chart(df[['Date','Total']]).mark_circle().encode(
+    x='Date', y='Total') #, size='c', color='c', tooltip=['a', 'b', 'c']
 
-# Plot!
-st.plotly_chart(fig, use_container_width=True)
+# Plot
+st.altair_chart(c, use_container_width=True)
 
 with st.expander("Instructions", expanded=True):
     st.write('Apply filters, see model transparency, explainability, and accuracy')
