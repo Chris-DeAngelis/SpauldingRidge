@@ -17,6 +17,16 @@ st.set_page_config(
 
 st.header("Welcome to Spaulding Ridge's Analytics & AI Demonstration Workspace")#:bar_chart::rocket:")
 st.write('This app uses sample data to demonstrate customer use cases. The analysis here is intended to become a template which can scale across customer use cases and create a best-in-class solution.')
+st.markdown(
+        """
+        ### Why use a web app for Data Science?        
+        - Secure access to your encrypted data without leaving your company's cloud provider
+        - Unlimited scalability and computational resources. You pay your cloud provider for what you use
+        - No software. No slowing down your computer. No credentials outside of access to your email
+        - Interactivity. Think dashboards and data you can add/remove/edit on the fly
+        """
+)
+
 #st.title('Data Ingestion')
 # with st.expander("Data Ingestion", expanded=True):
 #     a = st.multiselect(
