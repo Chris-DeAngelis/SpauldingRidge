@@ -27,19 +27,51 @@ if "shared" not in st.session_state:
 st.set_page_config(
     page_title="Data Science @ Spaulding Ridge | Chris DeAngelis, 2023",
     page_icon=":bar_chart:",
-    layout="wide"#,
-    #initial_sidebar_state="collapsed"
-    #menu_items={
-    #    'Get Help': 'chris.deangelis@elkay.com'#,
-        #'Report a bug': "https://www.extremelycoolapp.com/bug",
-        #'About': "# This is a header. This is an *extremely* cool app!"
-    #}    
+    layout="wide",
+    initial_sidebar_state="collapsed",
+    menu_items={
+        'Get Help': 'cdeangelis@SpauldingRidge.com'#,
+        'Report a bug': "https://www.extremelycoolapp.com/bug",
+        'About': "# This is a header. This is an *extremely* cool app!"
+    }    
 )
 
 st.title('Forecasting Demo')
 st.header('Securely connect to your data and use this flexible forecasting tool')
 st.write('Apply filters, see model transparency, explainability, and accuracy')
-         
+
+with st.expander("Instructions", expanded=False):
+    st.caption("1. Select level to forecast: channel, business vertical, etc.")
+    st.caption("2. Apply any filters to incorporate in the analysis")
+    st.caption("3. Optional: Try and enhance the forecast using external, macroeconomic variables")
+
+with st.expander("Sample Data Preview", expanded=True):
+    try:
+        verticals = st.multiselect(
+            "Choose Business Verticals", ['A','B','C'], ['B']
+        )
+        if not verticals:
+            st.error("Please select at least one business vertical.")
+        else:
+            st.write("#####")# Qty (Units)", df.sort_index())
+
+            #data = data.T.reset_index()
+            #data = pd.melt(data, id_vars=["index"]).rename(
+            #    columns={"index": "year", "value": "Gross Agricultural Product ($B)"}
+            #)
+           # chart = (
+           #     alt.Chart(df)
+           #     .mark_area(opacity=0.3)
+           #     .encode(
+           #         x="Year:T",
+           #         y=alt.Y("Net Invoice Amt ($M):Q", stack=None),
+           #         color="Product Segment:N",
+           #     )
+           # )
+            #st.altair_chart(chart, use_container_width=True)
+    finally:
+        st.write("")
+
 df = pd.read_csv(
     "https://raw.githubusercontent.com/selva86/datasets/master/AirPassengers.csv",
     header=0,
@@ -61,6 +93,80 @@ st.dataframe(df)#df.style.highlight_max(axis=1))
 # df.dropna(inplace=True)
 # df.fillna(0, inplace=True)
 # #df['Qty'].fillna(0, inplace=True)
+
+with st.expander("Macroeconomics Data Preview", expanded=False):
+    #@st.cache(ttl=600)
+    evaluate = st.checkbox(
+    "Use external macroeconomic data to influence forecast", value=True#, help=readme["tooltips"]["choice_eval"]
+    )
+    df = pd.DataFrame(
+    [
+        {"Index": "ABI", "Description (Double Click to Expand)": "The Architecture Billings Index (ABI) is a leading economic indicator of demand for non-residential construction activity. This includes both commercial and industrial buildings. A positive ABI can be a sign of strength or recovery in the broader economy, while a negative ABI can signal weakness or a coming downturn.", "Link": "https://www.aia.org/resources/10046-the-architecture-billings-index", "Activate": True},
+        {"Index": "Dodge", "Description (Double Click to Expand)": "The Dodge Momentum Index is a 12-month leading indicator of non-residential construction spending; focused specifically on patterns in the commercial and institutional segments. The Dodge Momentum Index uses first issued planning or prior to start information as a leading indicator of future construction spending. This is different from other indices in the market. It is used to determine future construction spending and demand for construction products and services, making it a useful tool for manufacturers, construction professionals, and economists.","Link": "https://www.construction.com/news/December-22-Starts", "Activate": True},
+        {"Index": "Housing", "Description (Double Click to Expand)": "As provided by the Census, start occurs when excavation begins for the footings or foundation of a building. All housing units in a multifamily building are defined as being started when this excavation begins. Beginning with data for September 1992, estimates of housing starts include units in structures being totally rebuilt on an existing foundation.", "Link": "https://www.census.gov/construction/nrc/index.html","Activate": False},
+        {"Index": "Labor", "Description (Double Click to Expand)": "The unemployment rate represents the number of unemployed as a percentage of the labor force. Labor force data are restricted to people 16 years of age and older, who currently reside in 1 of the 50 states or the District of Columbia, who do not reside in institutions (e.g., penal and mental facilities, homes for the aged), and who are not on active duty in the Armed Forces. This rate is also defined as the U-3 measure of labor underutilization. The series comes from the 'Current Population Survey (Household Survey)'", "Link": "https://www.bls.gov/ces/","Activate": False},
+        {"Index": "Finance", "Description (Double Click to Expand)": "Gross domestic product (GDP), the featured measure of U.S. output, is the market value of the goods and services produced by labor and property located in the United States.For more information, see the Guide to the National Income and Product Accounts of the United States (NIPA) and the Bureau of Economic Analysis.", "Link": "https://www.bea.gov/data/gdp/gross-domestic-product","Activate": False},
+        {"Index": "Prices", "Description (Double Click to Expand)": "Median Consumer Price Index (CPI) is a measure of core inflation calculated the Federal Reserve Bank of Cleveland and the Ohio State University. Median CPI was created as a different way to get a 'Core CPI' measure, or a better measure of underlying inflation trends. To calculate the Median CPI, the Cleveland Fed analyzes the median price change of the goods and services published by the BLS. The median price change is the price change that's right in the middle of the long list of all of the price changes. This series excludes 49.5% of the CPI components with the highest and lowest one-month price changes from each tail of the price-change distribution resulting in a Median CPI Inflation Estimate.According to research from the Cleveland Fed, the Median CPI provides a better signal of the inflation trend than either the all-items CPI or the CPI excluding food and energy. According to newer research done at the Cleveland Fed, the Median CPI is even better at PCE inflation in the near and longer term than the core PCE.", "Link": "https://www.clevelandfed.org/indicators-and-data/median-cpi","Activate": False},
+    ]
+    )
+    #df = load_data()
+    edited_df = st.experimental_data_editor(df, use_container_width = True) # 👈 An editable dataframe
+        favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
+        st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
+       st.dataframe(df, use_container_width=True)
+        df.set_index('Date: Ship')
+        #st.table(df.head()) 
+
+    #     verticals = st.multiselect(
+    #         "Choose Business Verticals", list(set(df['Cust: Channel'])), ['TRADITIONAL']
+    #     )
+    #     if not verticals:
+    #         st.error("Please select at least one business vertical.")
+    #     else:
+
+    #         data = df[df['Cust: Channel'].isin(verticals)]['Qty'].astype('float')
+    #         data /= 1000000.0
+    #         #data = data / 1000000.0
+    #         st.write("### Qty (Units)", df.sort_index())
+    # finally:
+    #     st.write("")
+
+with st.expander("Model Settings", expanded=False):
+    option_macro = st.checkbox("Use Macroeconomic Data", label_visibility="visible")
+    option_freq = st.radio("Forecast Interval", ('Weekly','Monthly','Quarterly'), horizontal=True, label_visibility="visible")
+    option_units = st.radio("Forecast Units", ('Sales ($USD)','Units'), horizontal=True, label_visibility="visible")
+
+# sales = df.copy()
+# if option_units == 'Sales ($USD)':
+#     sales.rename(columns = {'Date: Ship':'ds', 'Sales: Parent':'y'}, inplace = True)
+# else:
+#     sales.rename(columns = {'Date: Ship':'ds', 'Units':'y'}, inplace = True)
+# sales_tidy = sales[['ds','y']]
+# sales_tidy.fillna(0, inplace = True)
+
+#train = sales_tidy
+# if option_freq == 'Weekly':
+#     train = sales_tidy.set_index("ds").resample("W").sum()
+# elif option_freq == 'Monthly':
+#     train = sales_tidy.set_index("ds").resample("M").sum()
+# else:
+#     train = sales_tidy.set_index("ds").resample("Q").sum()    
+# train['ds'] = train.index
+with st.expander("Forecast Interpretation", expanded=False):
+    temp = st.checkbox("Placeholder", label_visibility="visible")
+    
+with st.expander("Model Performance & Error Analysis", expanded=False):
+    temp = st.checkbox("Placeholder", label_visibility="visible")
+    
+with st.expander("Model Seasonality & Factor Analysis", expanded=False):
+    temp = st.checkbox("Placeholder", label_visibility="visible")
+
+with st.expander("Export Forecast Data", expanded=False):
+    temp = st.checkbox("Placeholder", label_visibility="visible")
+
+with st.expander("What-If Analysis", expanded=False):
+    temp = st.checkbox("Placeholder", label_visibility="visible")
+
 
 ##########################################################
 # Aeon
@@ -185,120 +291,7 @@ st.dataframe(df)#df.style.highlight_max(axis=1))
 # )
 # from streamlit_prophet.lib.models.prophet import forecast_workflow
 # from streamlit_prophet.lib.utils.load import load_config#, load_image
-
-
-
-# st.title('Elkay Sales Forecast')
-# with st.expander("Instructions", expanded=False):
-#     st.caption("1. Select level to forecast: channel, business vertical, etc.")
-#     st.caption("2. Apply any filters to incorporate in the analysis")
-#     st.caption("3. Optional: Try and enhance the forecast using external, macroeconomic variables")
-
-# with st.expander("ZEWS Data Preview", expanded=False):
-#     try:
-#         verticals = st.multiselect(
-#             "Choose Business Verticals", list(set(df['Cust: Channel'])), ['TRADITIONAL']
-#         )
-#         if not verticals:
-#             st.error("Please select at least one business vertical.")
-#         else:
-#             data = df[df['Cust: Channel'].isin(verticals)]['Qty'].astype('float')
-#             data /= 1000000.0
-#             #data = data / 1000000.0
-#             st.write("##### Qty (Units)", df.sort_index())
-
-#             #data = data.T.reset_index()
-#             #data = pd.melt(data, id_vars=["index"]).rename(
-#             #    columns={"index": "year", "value": "Gross Agricultural Product ($B)"}
-#             #)
-#            # chart = (
-#            #     alt.Chart(df)
-#            #     .mark_area(opacity=0.3)
-#            #     .encode(
-#            #         x="Year:T",
-#            #         y=alt.Y("Net Invoice Amt ($M):Q", stack=None),
-#            #         color="Product Segment:N",
-#            #     )
-#            # )
-#             #st.altair_chart(chart, use_container_width=True)
-#     finally:
-#         st.write("")
     
-# with st.expander("Macroeconomics Data Preview", expanded=False):
-#     #@st.cache(ttl=600)
-#     evaluate = st.checkbox(
-#     "Use external macroeconomic data to influence forecast", value=True#, help=readme["tooltips"]["choice_eval"]
-#     )
-#     df = pd.DataFrame(
-#     [
-#         {"Index": "ABI", "Description (Double Click to Expand)": "The Architecture Billings Index (ABI) is a leading economic indicator of demand for non-residential construction activity. This includes both commercial and industrial buildings. A positive ABI can be a sign of strength or recovery in the broader economy, while a negative ABI can signal weakness or a coming downturn.", "Link": "https://www.aia.org/resources/10046-the-architecture-billings-index", "Activate": True},
-#         {"Index": "Dodge", "Description (Double Click to Expand)": "The Dodge Momentum Index is a 12-month leading indicator of non-residential construction spending; focused specifically on patterns in the commercial and institutional segments. The Dodge Momentum Index uses first issued planning or prior to start information as a leading indicator of future construction spending. This is different from other indices in the market. It is used to determine future construction spending and demand for construction products and services, making it a useful tool for manufacturers, construction professionals, and economists.","Link": "https://www.construction.com/news/December-22-Starts", "Activate": True},
-#         {"Index": "Housing", "Description (Double Click to Expand)": "As provided by the Census, start occurs when excavation begins for the footings or foundation of a building. All housing units in a multifamily building are defined as being started when this excavation begins. Beginning with data for September 1992, estimates of housing starts include units in structures being totally rebuilt on an existing foundation.", "Link": "https://www.census.gov/construction/nrc/index.html","Activate": False},
-#         {"Index": "Labor", "Description (Double Click to Expand)": "The unemployment rate represents the number of unemployed as a percentage of the labor force. Labor force data are restricted to people 16 years of age and older, who currently reside in 1 of the 50 states or the District of Columbia, who do not reside in institutions (e.g., penal and mental facilities, homes for the aged), and who are not on active duty in the Armed Forces. This rate is also defined as the U-3 measure of labor underutilization. The series comes from the 'Current Population Survey (Household Survey)'", "Link": "https://www.bls.gov/ces/","Activate": False},
-#         {"Index": "Finance", "Description (Double Click to Expand)": "Gross domestic product (GDP), the featured measure of U.S. output, is the market value of the goods and services produced by labor and property located in the United States.For more information, see the Guide to the National Income and Product Accounts of the United States (NIPA) and the Bureau of Economic Analysis.", "Link": "https://www.bea.gov/data/gdp/gross-domestic-product","Activate": False},
-#         {"Index": "Prices", "Description (Double Click to Expand)": "Median Consumer Price Index (CPI) is a measure of core inflation calculated the Federal Reserve Bank of Cleveland and the Ohio State University. Median CPI was created as a different way to get a 'Core CPI' measure, or a better measure of underlying inflation trends. To calculate the Median CPI, the Cleveland Fed analyzes the median price change of the goods and services published by the BLS. The median price change is the price change that's right in the middle of the long list of all of the price changes. This series excludes 49.5% of the CPI components with the highest and lowest one-month price changes from each tail of the price-change distribution resulting in a Median CPI Inflation Estimate.According to research from the Cleveland Fed, the Median CPI provides a better signal of the inflation trend than either the all-items CPI or the CPI excluding food and energy. According to newer research done at the Cleveland Fed, the Median CPI is even better at PCE inflation in the near and longer term than the core PCE.", "Link": "https://www.clevelandfed.org/indicators-and-data/median-cpi","Activate": False},
-#     ]
-#     )
-#     #df = load_data()
-#     edited_df = st.experimental_data_editor(df, use_container_width = True) # 👈 An editable dataframe
-        #favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
-        #st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
-#        st.dataframe(df, use_container_width=True)
-#         df.set_index('Date: Ship')
-#         #st.table(df.head()) 
-
-#         verticals = st.multiselect(
-#             "Choose Business Verticals", list(set(df['Cust: Channel'])), ['TRADITIONAL']
-#         )
-#         if not verticals:
-#             st.error("Please select at least one business vertical.")
-#         else:
-
-#             data = df[df['Cust: Channel'].isin(verticals)]['Qty'].astype('float')
-#             data /= 1000000.0
-#             #data = data / 1000000.0
-#             st.write("### Qty (Units)", df.sort_index())
-
-
-#     finally:
-#         st.write("")
-
-# with st.expander("Model Settings", expanded=False):
-#     option_macro = st.checkbox("Use Macroeconomic Data", label_visibility="visible")
-#     option_freq = st.radio("Forecast Interval", ('Weekly','Monthly','Quarterly'), horizontal=True, label_visibility="visible")
-#     option_units = st.radio("Forecast Units", ('Sales ($USD)','Units'), horizontal=True, label_visibility="visible")
-
-# sales = df.copy()
-# if option_units == 'Sales ($USD)':
-#     sales.rename(columns = {'Date: Ship':'ds', 'Sales: Parent':'y'}, inplace = True)
-# else:
-#     sales.rename(columns = {'Date: Ship':'ds', 'Units':'y'}, inplace = True)
-# sales_tidy = sales[['ds','y']]
-# sales_tidy.fillna(0, inplace = True)
-
-# #train = sales_tidy
-# if option_freq == 'Weekly':
-#     train = sales_tidy.set_index("ds").resample("W").sum()
-# elif option_freq == 'Monthly':
-#     train = sales_tidy.set_index("ds").resample("M").sum()
-# else:
-#     train = sales_tidy.set_index("ds").resample("Q").sum()    
-# train['ds'] = train.index
-
-# with st.expander("Forecast Interpretation", expanded=False):
-#     temp = st.checkbox("Placeholder", label_visibility="visible")
-    
-# with st.expander("Model Performance & Error Analysis", expanded=False):
-#     temp = st.checkbox("Placeholder", label_visibility="visible")
-    
-# with st.expander("Model Seasonality & Factor Analysis", expanded=False):
-#     temp = st.checkbox("Placeholder", label_visibility="visible")
-
-# with st.expander("Export Forecast Data", expanded=False):
-#     temp = st.checkbox("Placeholder", label_visibility="visible")
-
-# with st.expander("What-If Analysis", expanded=False):
-#     temp = st.checkbox("Placeholder", label_visibility="visible")
     
 # # Correlation matrix
 # st.markdown(
