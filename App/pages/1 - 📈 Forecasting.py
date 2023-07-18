@@ -55,7 +55,6 @@ with st.expander("Sample Data Preview", expanded=False):
             st.error("Please select at least one business vertical.")
         else:
             st.write("#####")# Qty (Units)", df.sort_index())
-
             #data = data.T.reset_index()
             #data = pd.melt(data, id_vars=["index"]).rename(
             #    columns={"index": "year", "value": "Gross Agricultural Product ($B)"}
@@ -71,7 +70,9 @@ with st.expander("Sample Data Preview", expanded=False):
            # )
             #st.altair_chart(chart, use_container_width=True)
     finally:
-        st.write("")
+        st.dataframe(df)#df.style.highlight_max(axis=1))
+        st.write("...")
+        edited_df = st.experimental_data_editor(df, use_container_width = True) # 👈 An editable dataframe
 
 df = pd.read_csv(
     "https://raw.githubusercontent.com/selva86/datasets/master/AirPassengers.csv",
@@ -86,7 +87,6 @@ df = pd.read_csv(
    parse_dates = ['Date']
 )
 #df = df[['Date: Ship','Qty']]
-st.dataframe(df)#df.style.highlight_max(axis=1))
 #st.write(df.head())
 #df = df[df['Item: Parent'] == 'DSE233194']
 # df.set_index('Date: Ship', inplace=True)
@@ -112,7 +112,7 @@ with st.expander("Macroeconomics Data Preview", expanded=False):
     ]
     )
     #df = load_data()
-edited_df = st.experimental_data_editor(df, use_container_width = True) # 👈 An editable dataframe
+
 #favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
 #st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
 #st.dataframe(df, use_container_width=True)
