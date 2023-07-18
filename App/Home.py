@@ -15,6 +15,11 @@ st.set_page_config(
     }
 )
 
+st.sidebar.write('')
+st.sidebar.write('')
+st.sidebar.write('')
+st.sidebar.write('')
+st.sidebar.write('')
 st.write("# Welcome to Spaulding Ridge's Analytics & AI Demonstration Workspace")#:bar_chart::rocket:")
 #st.title('Data Ingestion')
 # with st.expander("Data Ingestion", expanded=True):
