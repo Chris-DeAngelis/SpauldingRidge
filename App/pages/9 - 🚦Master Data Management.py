@@ -14,8 +14,8 @@ st.set_page_config(
     }
 )
 # initialize list of lists
-data = [['Brian', 'Joesphson', '32 S Drury Lane, VA 27343', '(253)234-2122','mysupplyparts.com',True,False],
-        ['Sally', 'Fields', '1232 N Hampton, NY 22340', '(153)256-0010','petfood.com',True,False]]
+data = [['Brian', 'Joesphson', '32 S Drury Lane, VA 27343', '(253)234-2122','mysupplyparts.com',True],
+        ['Sally', 'Fields', '1232 N Hampton, NY 22340', '(153)256-0010','petfood.com',True]]
   
 # Create the pandas DataFrame
 df = pd.DataFrame(data, columns=['First Name','Last Name','Address','Phone #','Website','Primary Customer Flag','Mark For Review'])
