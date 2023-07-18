@@ -33,7 +33,7 @@ st.markdown(
 st.markdown(
         """
         
-        ###:arrow_left: Get started by clicking the reports on the left
+        :arrow_left: Get started by clicking the reports on the left
         """
 )
 
