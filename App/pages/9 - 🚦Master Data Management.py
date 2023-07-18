@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import requests
+from io import StringIO
 
 st.set_page_config(
     page_title="Spaulding Ridge | Analytics & AI",
@@ -17,13 +18,14 @@ st.set_page_config(
 st.title('Master Data Management & Data Entry Tool')
 st.write('See how easily you can review, modify, add, and delete data before submitting')
 
-# initialize list of lists
-data = [['Brian', 'Joesphson', '32 S Drury Lane, VA 27343', '(253)234-2122','mysupplyparts.com',True],
-        ['Sally', 'Fields', '1232 N Hampton, NY 22340', '(153)256-0010','petfood.com',True]]
-  
-# Create the pandas DataFrame
-df = pd.DataFrame(data, columns=['First Name','Last Name','Address','Phone #','Website','Mark For Review'])
+# Give user option to upload data
+uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=False)
+for uploaded_file in uploaded_files:
+    bytes_data = uploaded_file.read()
+    st.write("filename:", uploaded_file.name)
+    st.write(bytes_data)
 
+# Create the pandas DataFrame
 df = pd.DataFrame({
        "First Name": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"],
        "Last Name": ["Joesphson","Yuly","Fields","Rimrose","James","Smith","Sitter","Angel"],
@@ -33,6 +35,8 @@ df = pd.DataFrame({
        "Mark For Review": [False,True,False,False,True,False,False,False]
 })
 
+if bytes_data is not None:
+    df = pd.DataFrame(bytes_data)
 edited_df = st.data_editor(df, 
                            num_rows='dynamic',
                            use_container_width=True) # 👈 An editable dataframe
