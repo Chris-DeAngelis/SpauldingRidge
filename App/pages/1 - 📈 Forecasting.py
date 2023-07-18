@@ -36,6 +36,21 @@ st.set_page_config(
     }
 )
 
+# Load data
+df = pd.read_csv(
+    "https://raw.githubusercontent.com/selva86/datasets/master/AirPassengers.csv",
+    header=0,
+    names=["time", "passengers"],
+    index_col='time', 
+    parse_dates=True
+)
+df = pd.read_csv(
+   'https://raw.githubusercontent.com/Chris-DeAngelis/SpauldingRidge/main/supermarket_sales%20-%20Sheet1.csv',
+   usecols = ['Branch','City','Customer type','Gender','Product line','Unit price','Quantity','Total','Date','Time','Payment','gross income'],
+   parse_dates = ['Date']
+)
+
+#################### Page Content ####################
 st.title('Forecasting Demo')
 st.header('Securely connect to your data and use this flexible forecasting tool')
 
@@ -70,22 +85,11 @@ with st.expander("Sample Data Preview", expanded=False):
            # )
             #st.altair_chart(chart, use_container_width=True)
     finally:
-        st.dataframe(df)#df.style.highlight_max(axis=1))
+        st.dataframe(df.head())#df.style.highlight_max(axis=1))
         st.write("...")
         edited_df = st.experimental_data_editor(df, use_container_width = True) # 👈 An editable dataframe
 
-df = pd.read_csv(
-    "https://raw.githubusercontent.com/selva86/datasets/master/AirPassengers.csv",
-    header=0,
-    names=["time", "passengers"],
-    index_col='time', 
-    parse_dates=True
-)
-df = pd.read_csv(
-   'https://raw.githubusercontent.com/Chris-DeAngelis/SpauldingRidge/main/supermarket_sales%20-%20Sheet1.csv',
-   usecols = ['Branch','City','Customer type','Gender','Product line','Unit price','Quantity','Total','Date','Time','Payment','gross income'],
-   parse_dates = ['Date']
-)
+
 #df = df[['Date: Ship','Qty']]
 #st.write(df.head())
 #df = df[df['Item: Parent'] == 'DSE233194']
