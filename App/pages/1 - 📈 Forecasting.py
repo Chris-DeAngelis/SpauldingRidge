@@ -8,6 +8,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import plotly.figure_factory as ff
 #import holidays
 from aeon.forecasting.trend import TrendForecaster
 from statsmodels.tsa.seasonal import seasonal_decompose
@@ -53,6 +54,14 @@ df = pd.read_csv(
 #################### Page Content ####################
 st.title('Forecasting Demo')
 st.header('Securely connect to your data and use this flexible forecasting tool')
+
+# Create distplot with custom bin_size
+fig = ff.create_linechart(
+        df[['Total']]
+)
+
+# Plot!
+st.plotly_chart(fig, use_container_width=True)
 
 with st.expander("Instructions", expanded=True):
     st.write('Apply filters, see model transparency, explainability, and accuracy')
