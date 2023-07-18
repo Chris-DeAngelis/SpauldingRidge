@@ -21,12 +21,12 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 #import xgboost as xgb
 #from sklearn.model_selection import TimeSeriesSplit, GridSearchCV
 
-if "shared" not in st.session_state:
-   st.session_state["shared"] = True
+#if "shared" not in st.session_state:
+#   st.session_state["shared"] = True
 
 st.set_page_config(
-    page_title="Data Science @ Spaulding Ridge | Chris DeAngelis, 2023",
-    page_icon=":bar_chart:",
+    page_title="Spaulding Ridge | Analytics & AI",
+    page_icon=":bar_chart:", #"👋",
     layout="wide",
     initial_sidebar_state="collapsed",
     menu_items={
@@ -40,12 +40,12 @@ st.title('Forecasting Demo')
 st.header('Securely connect to your data and use this flexible forecasting tool')
 st.write('Apply filters, see model transparency, explainability, and accuracy')
 
-with st.expander("Instructions", expanded=False):
+with st.expander("Instructions", expanded=True):
     st.caption("1. Select level to forecast: channel, business vertical, etc.")
     st.caption("2. Apply any filters to incorporate in the analysis")
     st.caption("3. Optional: Try and enhance the forecast using external, macroeconomic variables")
 
-with st.expander("Sample Data Preview", expanded=True):
+with st.expander("Sample Data Preview", expanded=False):
     try:
         verticals = st.multiselect(
             "Choose Business Verticals", ['A','B','C'], ['B']
@@ -111,9 +111,9 @@ with st.expander("Macroeconomics Data Preview", expanded=False):
     )
     #df = load_data()
 edited_df = st.experimental_data_editor(df, use_container_width = True) # 👈 An editable dataframe
-favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
-st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
-st.dataframe(df, use_container_width=True)
+#favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
+#st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
+#st.dataframe(df, use_container_width=True)
 #df.set_index('Date: Ship')
         #st.table(df.head()) 
 
