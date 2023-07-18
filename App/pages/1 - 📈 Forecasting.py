@@ -30,10 +30,10 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
     menu_items={
-        'Get Help': 'cdeangelis@SpauldingRidge.com'#,
-        'Report a bug': "https://www.extremelycoolapp.com/bug",
-        'About': "# This is a header. This is an *extremely* cool app!"
-    }    
+        'Get Help': 'http://spauldingridge.com',
+        #'Report a bug': "https://www.extremelycoolapp.com/bug",
+        'About': "# Built by Chris DeAngelis, CFA | cdeangelis@spauldingridge.com"
+    }
 )
 
 st.title('Forecasting Demo')
