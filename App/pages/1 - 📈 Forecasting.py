@@ -110,11 +110,11 @@ with st.expander("Macroeconomics Data Preview", expanded=False):
     ]
     )
     #df = load_data()
-    edited_df = st.experimental_data_editor(df, use_container_width = True) # 👈 An editable dataframe
-        favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
-        st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
-       st.dataframe(df, use_container_width=True)
-        df.set_index('Date: Ship')
+edited_df = st.experimental_data_editor(df, use_container_width = True) # 👈 An editable dataframe
+favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
+st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
+st.dataframe(df, use_container_width=True)
+#df.set_index('Date: Ship')
         #st.table(df.head()) 
 
     #     verticals = st.multiselect(
