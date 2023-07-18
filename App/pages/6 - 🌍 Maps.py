@@ -3,6 +3,7 @@ import altair as alt
 from vega_datasets import data
 import pandas as pd
 import requests
+import inspect
 
 st.set_page_config(
     page_title="Spaulding Ridge | Analytics & AI",
@@ -16,7 +17,7 @@ st.set_page_config(
     }
 )
 
-
+################# Tube Map #################
 boroughs = alt.topo_feature(data.londonBoroughs.url, 'boroughs')
 tubelines = alt.topo_feature(data.londonTubeLines.url, 'line')
 centroids = data.londonCentroids.url
@@ -67,6 +68,24 @@ lines = alt.Chart(tubelines).mark_geoshape(
 chart = background + labels + lines
 st.altair_chart(chart, theme="streamlit", use_container_width=True)
 
+
+################# World Map #################
+# Data generators for the background
+sphere = alt.sphere()
+graticule = alt.graticule()
+    
+# Source of land data
+source = alt.topo_feature(data.world_110m.url, 'countries')
+    
+chart = # Layering and configuring the components
+alt.layer(
+        alt.Chart(sphere).mark_geoshape(fill='lightblue'),
+        alt.Chart(graticule).mark_geoshape(stroke='white', strokeWidth=0.5),
+        alt.Chart(source).mark_geoshape(fill='ForestGreen', stroke='black')
+).project(
+    'naturalEarth1'
+).properties(width=600, height=400).configure_view(stroke=None)
+    
 # Load logo
 def add_logo():
     st.markdown(
