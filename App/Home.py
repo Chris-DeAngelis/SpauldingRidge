@@ -115,14 +115,14 @@ def add_logo():
                 background-repeat: no-repeat;
                 padding-top: 10px;
                 /*background-position: 20px 20px;*/
-                background-size: 300px 275px;
+                background-size: 350px 225px;
             }
             [data-testid="stSidebarNav"]::before {
                 content: "";
                 margin-left: 20px;
-                margin-top: 20px;
+                margin-top: 200px;
                 font-size: 30px;
-                position: absolute;
+                position: relative;
                 top: 320px;
             }
         </style>
