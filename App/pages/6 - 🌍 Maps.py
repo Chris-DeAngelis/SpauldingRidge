@@ -3,7 +3,7 @@ import altair as alt
 from vega_datasets import data
 import pandas as pd
 import requests
-import inspect
+#import inspect
 
 st.set_page_config(
     page_title="Spaulding Ridge | Analytics & AI",
