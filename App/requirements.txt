@@ -6,7 +6,7 @@ numpy
 # Database connections
 snowflake.sqlalchemy
 sqlalchemy
-vega_datasets
+vega-datasets
 
 # Streamlit text formatting
 st-annotated-text
