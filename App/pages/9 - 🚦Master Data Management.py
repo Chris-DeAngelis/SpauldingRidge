@@ -17,7 +17,15 @@ st.set_page_config(
 
 st.title('Master Data Management & Data Entry Tool')
 st.write('See how easily you can review, modify, add, and delete data before submitting. Changing records in this table will not impact the data source unless the publish button is pushed (not functional yet)')
-
+st.markdown("""
+	    Some other features include:
+	    - Copy and paste data from Excel into browser
+     	    - Upload several files at once
+	    - Separate different processes into tabs
+            - Import from a one or many systems and publish to one or many systems
+	    - Run business checks and automatically apply common fixes
+	    - Leverage natural language processing (NLP) to clean the data for you automatically
+     
 # Give user option to upload data
 #uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=False)
 uploaded_file = st.file_uploader("Upload your file here...", type=['csv'])
