@@ -15,7 +15,7 @@ st.set_page_config(
     }
 )
 
-st.header("# Welcome to Spaulding Ridge's Analytics & AI Demonstration Workspace")#:bar_chart::rocket:")
+st.header("Welcome to Spaulding Ridge's Analytics & AI Demonstration Workspace")#:bar_chart::rocket:")
 st.write('This app uses sample data to demonstrate customer use cases. The analysis here is intended to become a template which can scale across customer use cases and create a best-in-class solution.')
 #st.title('Data Ingestion')
 # with st.expander("Data Ingestion", expanded=True):
