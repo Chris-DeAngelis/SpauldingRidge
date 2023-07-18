@@ -20,19 +20,15 @@ data = [['Brian', 'Joesphson', '32 S Drury Lane, VA 27343', '(253)234-2122','mys
 # Create the pandas DataFrame
 df = pd.DataFrame(data, columns=['First Name','Last Name','Address','Phone #','Website','Mark For Review'])
 
-# df = pd.DataFrame(
-#     [
-       
-        
-#        {"Customer: First Name": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
-#        {"Customer: Last Name": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
-#        {"Customer: Address": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
-#        {"Customer: Phone #": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
-#        {"Customer: Website": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
-#        {"Primary Customer Flag": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+df = pd.DataFrame(
+    [  {"First Name": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+       {"Last Name": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]}#,
+#        {"Address": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+#        {"Phone #": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+#        {"Website": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
 #        {"Mark For Review": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]}
-#    ]
-# )
+   ]
+)
 edited_df = st.data_editor(df, 
                            num_rows='dynamic',
                            use_container_width=True) # 👈 An editable dataframe
