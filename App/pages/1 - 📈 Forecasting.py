@@ -22,9 +22,6 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 #import xgboost as xgb
 #from sklearn.model_selection import TimeSeriesSplit, GridSearchCV
 
-#if "shared" not in st.session_state:
-#   st.session_state["shared"] = True
-
 st.set_page_config(
     page_title="Spaulding Ridge | Analytics & AI",
     page_icon=":bar_chart:", #"👋",
@@ -53,11 +50,11 @@ df = pd.read_csv(
 
 #################### Page Content ####################
 st.title('Forecasting Demo')
-st.header('Securely connect to your data and use this flexible forecasting tool')
+st.write('Securely connect to your data and use this flexible forecasting tool')
 
-# Create distplot with custom bin_size
+# Create lineplot
 fig = ff.create_linechart(
-        df[['Total']]
+        df[['Date','Total']]
 )
 
 # Plot!
