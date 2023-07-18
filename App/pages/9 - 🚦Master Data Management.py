@@ -18,7 +18,7 @@ st.set_page_config(
 st.title('Master Data Management & Data Entry Tool')
 st.write('See how easily you can review, modify, add, and delete data before submitting. Changing records in this table will not impact the data source unless the publish button is pushed (not functional yet)')
 st.markdown("""
-	    Some other features include:
+	    ### Some other features include:
 	    - Copy and paste data from Excel into browser
      	    - Upload several files at once
 	    - Separate different processes into tabs
