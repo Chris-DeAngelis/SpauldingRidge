@@ -16,7 +16,7 @@ st.set_page_config(
 )
 
 st.title('Master Data Management & Data Entry Tool')
-st.write('See how easily you can review, modify, add, and delete data before submitting')
+st.write('See how easily you can review, modify, add, and delete data before submitting. Changing records in this table will not impact the data source unless the publish button is pushed (not functional yet)')
 
 # Give user option to upload data
 #uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=False)
@@ -51,7 +51,9 @@ edited_df = st.data_editor(df,
 
 # Adding buttons
 st.button('Post Results to Database', key=1)
-st.button('Clear Changes', key=2)
+st.button('Delete Selected Rows', key=3)
+st.button('Clear All Changes', key=2)
+
 
 # Load logo
 def add_logo():
