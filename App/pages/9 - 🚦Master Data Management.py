@@ -22,7 +22,7 @@ df = pd.DataFrame(
        {"Customer: Phone #": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
        {"Customer: Website": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
        {"Primary Customer Flag": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
-       {"Mark For Review": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]},
+       {"Mark For Review": ["Brian","Jason","Sally","Briana","Keely","Jake","Myles","Greg"]}
    ]
 )
 edited_df = st.data_editor(df, 
