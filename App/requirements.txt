@@ -27,7 +27,6 @@ matplotlib
 seaborn
 pygwalker
 altair
-inspect
 #pygwalker == 0.3.*
 
 #pystan
