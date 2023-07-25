@@ -9,6 +9,7 @@ st.set_page_config(
     page_title="Spaulding Ridge | Analytics & AI",
     page_icon=":bar_chart:", #"👋",
     initial_sidebar_state="collapsed",
+    layout="wide",
     menu_items={
         'Get Help': 'http://spauldingridge.com',
         #'Report a bug': "https://www.extremelycoolapp.com/bug",
@@ -18,16 +19,22 @@ st.set_page_config(
 #################### Page Content ####################
 st.title('Ratings & Reviews Demo')
 st.write('Securely connect to your data and use this template for extracting more insights out of your product reviews')
+st.caption('This is a sample of Amazon reviews: https://www.kaggle.com/datasets/yasserh/amazon-product-reviews-dataset?resource=download. The sentiment analysis uses a BERT NLP model from HuggingFace https://huggingface.co/nlptown/bert-base-multilingual-uncased-sentiment/tree/main')
 
-data = pd.read_csv('https://raw.githubusercontent.com/Chris-DeAngelis/SpauldingRidge/main/product_reviews.csv',
-                   usecols=['name','dateUpdated','reviews.rating','reviews.text','reviews.title'])#'categories',
-st.dataframe(data.head())
 
 #################### Load Pre-trained Sentiment Analysis Model ####################
 model = hf_hub_download(repo_id="nlptown/bert-base-multilingual-uncased-sentiment", filename="tf_model.h5")
 
-# Load pre-trained model
-#model = 'bert-base-multilingual-uncased-sentiment'
+#################### Preprocessing ####################
+# Load sample Amazon review data
+data = pd.read_csv('https://raw.githubusercontent.com/Chris-DeAngelis/SpauldingRidge/main/product_reviews.csv',
+                   usecols=['name','dateUpdated','reviews.title','reviews.text','reviews.rating'])#'categories',
+data.rename(columns={'name': 'Product', 
+                     'dateUpdated': 'Review Date',
+                     'reviews.title': 'Review Title',
+                     'reviews.text': 'Review Text',
+                     'reviews.rating': 'Review Rating'}, inplace=True)
+st.dataframe(data.head())
 
 #specify task
 #task = 'sentiment-analysis'
