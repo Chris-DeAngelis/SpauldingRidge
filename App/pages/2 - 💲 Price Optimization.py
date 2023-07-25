@@ -21,18 +21,20 @@ def add_logo():
         """
         <style>
             [data-testid="stSidebarNav"] {
-                background-image: url(http://placekitten.com/200/200);
+                background-image: url(https://github.com/Chris-DeAngelis/SpauldingRidge/blob/main/App/SR%20Logo.PNG?raw=true);
                 background-repeat: no-repeat;
-                padding-top: 120px;
-                background-position: 20px 20px;
+                padding-top: 50px;
+                padding-left: 10px;
+                background-position: 50px 50px;
+                background-size: 250px 125px;
             }
             [data-testid="stSidebarNav"]::before {
-                content: "My Company Name";
+                content: "";
                 margin-left: 20px;
-                margin-top: 20px;
+                margin-top: 200px;
                 font-size: 30px;
                 position: relative;
-                top: 100px;
+                top: 320px;
             }
         </style>
         """,
