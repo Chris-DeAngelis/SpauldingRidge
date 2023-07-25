@@ -18,6 +18,7 @@ requests
 huggingface_hub
 tensorflow
 transformers[torch]
+transformers[tf-cpu]
 #pytorch
 transformers
 scikit-learn
