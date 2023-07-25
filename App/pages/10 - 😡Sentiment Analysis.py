@@ -24,7 +24,7 @@ data = pd.read_csv('https://raw.githubusercontent.com/Chris-DeAngelis/SpauldingR
 st.dataframe(df.head())
 
 #################### Load Pre-trained Sentiment Analysis Model ####################
-model = hf_hub_download(repo_id="nlptown/bert-base-multilingual-uncased-sentiment", filename="tf_model.h5")
+#model = hf_hub_download(repo_id="nlptown/bert-base-multilingual-uncased-sentiment", filename="tf_model.h5")
 
 # Load pre-trained model
 #model = 'bert-base-multilingual-uncased-sentiment'
