@@ -1,6 +1,6 @@
 import streamlit as st
 import requests
-from huggingface_hub import hf_hub_download#, login, HfApi, ModelFilter, DatasetFilter
+#from huggingface_hub import hf_hub_download#, login, HfApi, ModelFilter, DatasetFilter
 from transformers import pipeline
 import pandas as pd
 
@@ -21,10 +21,6 @@ st.title('Ratings & Reviews Demo')
 st.write('Securely connect to your data and use this template for extracting more insights out of your product reviews')
 st.caption('This is a sample of Amazon reviews: https://www.kaggle.com/datasets/yasserh/amazon-product-reviews-dataset?resource=download. The sentiment analysis uses a BERT NLP model from HuggingFace https://huggingface.co/nlptown/bert-base-multilingual-uncased-sentiment/tree/main')
 
-
-#################### Load Pre-trained Sentiment Analysis Model ####################
-model = hf_hub_download(repo_id="nlptown/bert-base-multilingual-uncased-sentiment", filename="tf_model.h5")
-
 #################### Preprocessing ####################
 # Load sample Amazon review data
 data = pd.read_csv('https://raw.githubusercontent.com/Chris-DeAngelis/SpauldingRidge/main/product_reviews.csv',
@@ -34,8 +30,17 @@ data.rename(columns={'name': 'Product',
                      'reviews.title': 'Review Title',
                      'reviews.text': 'Review Text',
                      'reviews.rating': 'Review Rating'}, inplace=True)
+data = data[['Review Date','Product','Review Title','Review Text','Review Rating']]
 st.dataframe(data.head())
 
+
+
+#################### Load Pre-trained Sentiment Analysis Model ####################
+nlp_model = pipeline(task='sentiment-analysis', 
+                     model='nlptown/bert-base-multilingual-uncased-sentiment')
+data['ML Model'] = nlp_pipeline(data['Review Text'])
+st.write("Add in a ML Model")
+st.dataframe(data.head())
 #specify task
 #task = 'sentiment-analysis'
 
