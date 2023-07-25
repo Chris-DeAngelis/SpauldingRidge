@@ -38,7 +38,8 @@ st.dataframe(data.head())
 #################### Load Pre-trained Sentiment Analysis Model ####################
 nlp_model = pipeline(task='sentiment-analysis', 
                      model='nlptown/bert-base-multilingual-uncased-sentiment')
-data['ML Model'] = nlp_pipeline(data['Review Text'])
+model_results = pd.DataFrame.from_dict(nlp_pipeline(data['Review Text']), orient='columns')
+data['ML Model'] = model_results['label'].str[:1].astype('int')
 st.write("Add in a ML Model")
 st.dataframe(data.head())
 #specify task
