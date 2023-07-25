@@ -18,7 +18,6 @@ requests
 huggingface_hub
 tensorflow
 pytorch
-torch
 transformers
 scikit-learn
 statsmodels
