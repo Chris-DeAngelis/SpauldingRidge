@@ -19,7 +19,7 @@ st.set_page_config(
 #################### Page Content ####################
 st.title('Ratings & Reviews Demo')
 st.write('Securely connect to your data and use this template for extracting more insights out of your product reviews')
-st.caption('This is a sample of Amazon reviews: https://www.kaggle.com/datasets/yasserh/amazon-product-reviews-dataset?resource=download')
+st.caption('This is a sample of Amazon reviews: https://www.kaggle.com/datasets/yasserh/amazon-product-reviews-dataset?resource=download
 st.caption('The sentiment analysis uses a BERT NLP model from HuggingFace https://huggingface.co/nlptown/bert-base-multilingual-uncased-sentiment/tree/main')           
 
 #################### Preprocessing ####################
@@ -35,11 +35,12 @@ data = data[['Review Date','Product','Review Title','Review Text','Review Rating
 st.dataframe(data.head())
 
 #################### Load Pre-trained Sentiment Analysis Model ####################
+#@st.cache_resource
 nlp_pipeline = pipeline(task='sentiment-analysis', model='nlptown/bert-base-multilingual-uncased-sentiment')
-# model_results = pd.DataFrame.from_dict(nlp_pipeline(data['Review Text']), orient='columns')
-# data['ML Model'] = model_results['label'].str[:1].astype('int')
-# st.write("Add in a ML Model")
-# st.dataframe(data.head())
+model_results = pd.DataFrame.from_dict(nlp_pipeline(data['Review Text']), orient='columns')
+data['ML Model'] = model_results['label'].str[:1].astype('int')
+st.write("Add in a ML Model")
+st.dataframe(data.head())
 #specify task
 #task = 'sentiment-analysis'
 
