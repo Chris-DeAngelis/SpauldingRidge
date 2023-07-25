@@ -8,7 +8,7 @@ import pandas as pd
 st.set_page_config(
     page_title="Spaulding Ridge | Analytics & AI",
     page_icon=":bar_chart:", #"👋",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
     menu_items={
         'Get Help': 'http://spauldingridge.com',
         #'Report a bug': "https://www.extremelycoolapp.com/bug",
@@ -19,8 +19,8 @@ st.set_page_config(
 st.title('Ratings & Reviews Demo')
 st.write('Securely connect to your data and use this template for extracting more insights out of your product reviews')
 
-data = pd.read_csv('https://raw.githubusercontent.com/Chris-DeAngelis/SpauldingRidge/main/product_reviews.csv',
-                   usecols=['name','dateUpdated','reviews.rating','reviews.text','reviews.title'])#'categories',
+#data = pd.read_csv('https://raw.githubusercontent.com/Chris-DeAngelis/SpauldingRidge/main/product_reviews.csv',
+#                   usecols=['name','dateUpdated','reviews.rating','reviews.text','reviews.title'])#'categories',
 st.dataframe(df.head())
 
 #################### Load Pre-trained Sentiment Analysis Model ####################
