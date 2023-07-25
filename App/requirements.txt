@@ -17,6 +17,7 @@ requests
 # Machine learning modeling and statistical analysis
 huggingface_hub
 tensorflow
+transformers[torch]
 #pytorch
 transformers
 scikit-learn
