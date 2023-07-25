@@ -15,7 +15,7 @@ st-annotated-text
 requests
 
 # Machine learning modeling and statistical analysis
-#huggingface_hub
+huggingface_hub
 tensorflow
 #pytorch
 transformers
