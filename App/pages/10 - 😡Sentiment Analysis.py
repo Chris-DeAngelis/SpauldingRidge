@@ -36,11 +36,11 @@ st.dataframe(data.head())
 
 #################### Load Pre-trained Sentiment Analysis Model ####################
 #@st.cache_resource
-nlp_pipeline = pipeline(task='sentiment-analysis', model='nlptown/bert-base-multilingual-uncased-sentiment')
-model_results = pd.DataFrame.from_dict(nlp_pipeline(data['Review Text'].to_list()), orient='columns')
-data['ML Model'] = model_results['label'].str[:1].astype('int')
-st.write("Add in a ML Model")
-st.dataframe(data.head())
+# nlp_pipeline = pipeline(task='sentiment-analysis', model='nlptown/bert-base-multilingual-uncased-sentiment')
+# model_results = pd.DataFrame.from_dict(nlp_pipeline(data['Review Text'].to_list()), orient='columns')
+# data['ML Model'] = model_results['label'].str[:1].astype('int')
+# st.write("Add in a ML Model")
+# st.dataframe(data.head())
 
 #################### Page Logo ####################
 def add_logo():
