@@ -39,9 +39,9 @@ st.dataframe(data.head())
 data['Review Text'] = data['Review Text'].apply(lambda x: ' '.join(x[:512].split(' ')[:-1]) if len(x) > 512 else x)
 nlp_pipeline = pipeline(task='sentiment-analysis', model='nlptown/bert-base-multilingual-uncased-sentiment')
 model_results = pd.DataFrame.from_dict(nlp_pipeline(list(data['Review Text'])), orient='columns')
-data['ML Model'] = model_results['label'].str[:1].astype('int')
+#data['ML Model'] = model_results['label'].str[:1].astype('int')
 st.write("Add in a ML Model")
-st.dataframe(data.head())
+#st.dataframe(data.head())
 
 #################### Page Logo ####################
 def add_logo():
