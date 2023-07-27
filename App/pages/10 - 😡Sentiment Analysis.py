@@ -40,9 +40,10 @@ def sentiment_model(data):
     """
     ...
     """
-    data['Review Text'] = data['Review Text'].apply(lambda x: ' '.join(x[:512].split(' ')[:-1]) if len(x) > 512 else x)
+    data['Complete Review'] = data['Review Title'] + ". " + data['Review Text']
+    data['Complete Review'] = data['Complete Review'].apply(lambda x: ' '.join(x[:512].split(' ')[:-1]) if len(x) > 512 else x)
     nlp_pipeline = pipeline(task='sentiment-analysis', model='nlptown/bert-base-multilingual-uncased-sentiment')
-    model_results = pd.DataFrame.from_dict(nlp_pipeline(list(data['Review Text'])), orient='columns')
+    model_results = pd.DataFrame.from_dict(nlp_pipeline(list(data['Complete Review'])), orient='columns')
     data['ML Model'] = model_results['label'].str[:1].astype('int')
     return data
 
