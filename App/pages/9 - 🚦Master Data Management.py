@@ -70,8 +70,8 @@ with col2:
 with col3:
 	#st.button('Restore Original Table', key=3)
 	if(st.button('Restore Original Table', key=3)):
-	edited_df = df[df['Mark For Review'] == True]
-	st.success("Original table successfully restored")
+		edited_df = df[df['Mark For Review'] == True]
+		st.success("Original table successfully restored")
 
 	
 # Load logo
