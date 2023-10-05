@@ -62,8 +62,20 @@ with col1:
 with col2:
 	st.button('Delete Selected Rows', key=2)
 with col3:
-	st.button('Clear All Changes', key=3)
+	st.button('Restore Original Table', key=3)
 
+if(st.button('Post Results to Database')):
+	st.success("Intentionally not functioning: sample results posted to database")
+
+if(st.button('Delete Selected Rows')):
+	temp_df = edited_df	
+	edited_df = df
+	st.success("Original table successfully restored")
+	
+if(st.button('Restore Original Table')):
+	edited_df = df[df['Mark For Review'] == True]
+	st.success("Original table successfully restored")
+	
 # Load logo
 def add_logo():
     st.markdown(
