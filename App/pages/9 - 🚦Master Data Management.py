@@ -58,23 +58,21 @@ edited_df = st.data_editor(df,
 # Adding buttons
 col1, col2, col3 = st.columns(3)
 with col1:
-	st.button('Post Results to Database', key=1)
+	#st.button('Post Results to Database', key=1)
+	if(st.button('Post Results to Database', key=1)):
+		st.success("Intentionally not functioning: sample results posted to database")
 with col2:
-	st.button('Delete Selected Rows', key=2)
+	#st.button('Delete Selected Rows', key=2)
+	if(st.button('Delete Selected Rows', key=2)):
+		temp_df = edited_df	
+		edited_df = df
+		st.success("Original table successfully restored")
 with col3:
-	st.button('Restore Original Table', key=3)
-
-if(st.button('Post Results to Database')):
-	st.success("Intentionally not functioning: sample results posted to database")
-
-if(st.button('Delete Selected Rows')):
-	temp_df = edited_df	
-	edited_df = df
-	st.success("Original table successfully restored")
-	
-if(st.button('Restore Original Table')):
+	#st.button('Restore Original Table', key=3)
+	if(st.button('Restore Original Table', key=3)):
 	edited_df = df[df['Mark For Review'] == True]
 	st.success("Original table successfully restored")
+
 	
 # Load logo
 def add_logo():
